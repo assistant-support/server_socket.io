@@ -5,9 +5,7 @@ import http from 'http';
 import cors from 'cors';
 import { Server } from 'socket.io';
 import jwt from 'jsonwebtoken';
-
 import { connectMongo } from './db.js';
-import Message from './models/message.js';
 
 const app = express();
 app.use(express.json());
@@ -55,7 +53,11 @@ io.use((socket, next) => {
             return next(new Error('no token'));
         }
         // Luôn xác thực bằng AUTH_SECRET
+        console.log(AUTH_SECRET);
+        
         const payload = jwt.verify(token, AUTH_SECRET);
+        console.log(payload);
+        
         const uid = String(payload?.uid || '');
         if (!uid) {
             return next(new Error('invalid token payload'));
