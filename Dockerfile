@@ -15,7 +15,7 @@ COPY --from=builder /app .
 # Nếu có bước build, hãy sao chép thư mục build: COPY --from=builder /app/dist ./dist
 
 # Mở port mà ứng dụng đang lắng nghe BÊN TRONG container
-EXPOSE 5001
+EXPOSE 4010
 
 # Lệnh để khởi chạy ứng dụng (giả sử file chính là server.js)
 CMD ["node", "server.js"]
