@@ -1,23 +1,23 @@
 {
-  "name": "server_socket.io",
+  "name": "production-socket-server",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Socket.IO realtime server with MongoDB",
+  "description": "Production-ready Socket.IO server",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "start": "NODE_ENV=production node server.js"
+    "start": "node server.js"
   },
   "dependencies": {
-    "cors": "2.8.5",
-    "dotenv": "17.2.2",
-    "express": "4.21.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "8.18.0",
-    "socket.io": "4.8.1"
+    "mongoose": "^8.4.0",
+    "socket.io": "^4.7.5"
   },
   "devDependencies": {
-    "nodemon": "3.1.10"
+    "nodemon": "^3.1.0"
   }
 }
