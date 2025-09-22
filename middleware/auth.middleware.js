@@ -9,12 +9,16 @@ export const authMiddleware = (socket, next) => {
     try {
         // Lấy token từ object `auth` trong handshake
         const token = socket.handshake.auth?.token;
+        console.log(token);
+        
         if (!token) {
             logger.warn(`Authentication failed: No token provided for socket ID ${socket.id}`);
             return next(new Error('Authentication error: No token provided.'));
         }
 
         // Giải mã token bằng AUTH_SECRET
+        console.log(AUTH_SECRET);
+        
         const payload = jwt.verify(token, AUTH_SECRET);
         const uid = String(payload?.uid || '');
 
